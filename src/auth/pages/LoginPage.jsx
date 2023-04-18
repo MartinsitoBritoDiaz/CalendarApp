@@ -3,20 +3,20 @@ import "./LoginPage.css";
 export const LoginPage = () => {
   const navigate = useNavigate();
   return (
-    <section className="d-flex justify-content-center align-items-center container-signIn">
+    <section className="d-flex justify-content-center align-items-center container-signIn text-light">
       <div className="">
         <div className="row d-flex justify-content-evenly align-items-center container-login mx-sm-5 mx-3 py-5 px-5 px-md-0">
-          <div className="col-md-7 col-lg-5 col-xl-5">
+          <div className="col-md-6 col-lg-4 col-xl-4">
             <img
               src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
               className="img-fluid"
               alt="Sample image"
             />
           </div>
-          <div className="col-md-8 col-lg-6 col-xl-6 text-light px-1 px-md-0">
+          <div className="col-md-7 col-lg-5 col-xl-5  px-1 px-md-0">
             <form>
               <div className="my-3 mt-5 mt-lg-0">
-                <h1 className="fw-bold mb-0 me-3">Sign in</h1>
+                <h3 className="fw-bold mb-0 me-3">Sign in</h3>
               </div>
 
               <div className="form-outline mb-4">

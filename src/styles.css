@@ -41,3 +41,12 @@ body{
     justify-content: center;
     align-items: center;
 }
+
+.calendar-bg{ 
+  background-color: white;
+}
+
+.custom--navbar{
+  background-color: var(--Very-dark-blue-main);
+
+}
