@@ -13,7 +13,7 @@ export const RegisterPage = () => {
               <div className="row">
                 <div className="col-md-6 mb-4">
                   <div className="form-outline">
-                    <label className="form-label" for="form3Example1">
+                    <label className="form-label">
                       First name
                     </label>
                     <input
