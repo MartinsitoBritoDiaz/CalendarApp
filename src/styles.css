@@ -1,0 +1,43 @@
+:root {
+  --Soft-blue: hsl(215, 51%, 70%);
+  --Cyan: hsl(178, 100%, 50%);
+  --Very-dark-blue-main: hsl(217, 54%, 11%);
+  --Very-dark-blue-card: hsl(216, 50%, 16%);
+  --Very-dark-blue-line: hsl(215, 32%, 27%);
+  --White: hsl(0, 0%, 100%);
+}
+
+html,
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--Very-dark-blue-main);
+}
+
+@media (max-width: 500px) {
+  .container-signIn {
+    height: 90vh;
+  }
+}
+
+@media (min-width: 500px) {
+  .container-signIn {
+    height: 100vh;
+  }
+}
+
+html{
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+}
+
+*, *:before, *:after{ box-sizing: inherit;}
+
+.main-container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
