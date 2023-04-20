@@ -15,7 +15,7 @@ export function FabAddNew() {
       bgColor: "#fafafa",
       user: {
         _id: "123",
-        name: "Luisin",
+        name: "Martin",
       },
     });
     openDateModal();

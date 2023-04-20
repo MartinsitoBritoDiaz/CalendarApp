@@ -3,14 +3,14 @@ import { addHours } from 'date-fns';
 
 const tempEvent = {
     _id: new Date().getTime(),
-    title: 'birthday',
+    title: 'Boss birthday',
     start: new Date(),
     notes: 'Have to buy a cake',
     end: addHours(new Date(), 2),
     bgColor: '#fafaaa',
     user: {
       _id: '123',
-      name: 'Luisin',
+      name: 'Martin',
     }
 };
 
