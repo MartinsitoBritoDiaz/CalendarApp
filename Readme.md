@@ -15,7 +15,7 @@ Access my site at [Live Site](https://calendar-mbd.vercel.app/)
 - [About Me](#about-me)
 
 ## About The App
-Calendar APP is an app that allows you to create a different kinds of events an manage them with a beautifull user interface. 
+Calendar APP is a web app that allows you to create a different kinds of events an manage them with a beautifull user interface. 
 
 I created this project as part of this udemy course:  
 - [React: De cero a experto ( Hooks y MERN ) ](https://www.udemy.com/course/react-cero-experto/) 
