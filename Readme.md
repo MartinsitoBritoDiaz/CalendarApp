@@ -8,6 +8,7 @@ Access my site at [Live Site](https://calendar-mbd.vercel.app/)
 
 - [About The App](#about-the-app)
 - [Screenshots](#screenshots)
+- [Development Steps](#development-steps)
 - [Technologies](#technologies)
 - [Setup](#setup)
 - [Approach](#approach)
@@ -33,6 +34,10 @@ I created this project as part of this udemy course:
 ### Event Creation Page
 ![imagen](https://user-images.githubusercontent.com/54644026/233252369-3d9fbeea-3d2a-4dce-9c26-1e82845db537.png)
 
+## Development Steps
+
+1. Rename the .env.template to .env
+2. Run npm install or yarn
 
 ## Technologies
 I used `React JS`, `Bootstrap` and `Redux`
