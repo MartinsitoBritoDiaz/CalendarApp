@@ -16,7 +16,7 @@ Access my site at [Live Site](https://calendar-mbd.vercel.app/)
 - [About Me](#about-me)
 
 ## About The App
-Calendar APP is an app that allows you to create a different kinds of events an manage them with a beautifull user interface. 
+Calendar APP is a web app that allows you to create a different kinds of events an manage them with a beautifull user interface. 
 
 I created this project as part of this udemy course:  
 - [React: De cero a experto ( Hooks y MERN ) ](https://www.udemy.com/course/react-cero-experto/) 
@@ -48,10 +48,10 @@ I used `React JS`, `Bootstrap` and `Redux`
 - run `npm install` or `yarn`
 
 ## Approach
-I adopted the `BEM` naming style for my css class names.
+I adopted the `BEM` naming style for my css class names but for the most of them I used bootstrap.
 
 ## Status
-- [Calendar App]() is still in progress. `Back End Project` will be out soon.
+- [Calendar App](https://calendar-mbd.vercel.app/) is still in progress. `Back End Project` will be out soon.
 
 ## About me
 List of contriubutors:
