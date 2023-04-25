@@ -14,7 +14,7 @@ const initialState = {
 export const useCustomForm = () => {
   const [formValues, updateFormValues] = useState(initialState);
   const [formSumitted, setFormSumitted] = useState(false);
-  const { activeEvents, startSavingEvent } = useCalendarStore();
+  const { activeEvent, startSavingEvent } = useCalendarStore();
   const { isDateModalOpen, closeDateModal } = useUIStore();
 
   const titleClass = useMemo(() => {
@@ -24,10 +24,10 @@ export const useCustomForm = () => {
   }, [formValues.title, formSumitted]);
 
   useEffect(() => {
-    if (activeEvents !== null) {
-      updateFormValues({ ...activeEvents });
+    if (activeEvent !== null) {
+      updateFormValues({ ...activeEvent });
     }
-  }, [activeEvents]);
+  }, [activeEvent]);
 
   const onSubmit = async (event) => {
     event.preventDefault();

@@ -1,58 +1,75 @@
 import { useDispatch, useSelector } from "react-redux";
-import { onAddNewEvent, onDeleteEvent, onLoadEvents, onSetActiveEvent, onUpdateEvent } from "../store/calendar/calendarSlice";
+import {
+  onAddNewEvent,
+  onDeleteEvent,
+  onLoadEvents,
+  onSetActiveEvent,
+  onUpdateEvent,
+} from "../store/calendar/calendarSlice";
 import { calendarAPI } from "../api";
 import { convertEventsToDateEvents } from "../helpers";
+import Swal from "sweetalert2";
 
 export const useCalendarStore = () => {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    const { events, activeEvents } = useSelector(store => store.calendar); 
-    const { user } = useSelector(store => store.auth); 
+  const { events, activeEvent } = useSelector((store) => store.calendar);
+  const { user } = useSelector((store) => store.auth);
 
-    const setActiveEvent = ( calendarEvent ) => {
-        dispatch( onSetActiveEvent(calendarEvent) );
+  const setActiveEvent = (calendarEvent) => {
+    dispatch(onSetActiveEvent(calendarEvent));
+  };
+
+  const startSavingEvent = async (calendarEvent) => {
+    try {
+      //Everything ok
+      if (calendarEvent.id) {
+        // Updating
+        await calendarAPI.put(`/events/${calendarEvent.id}`, calendarEvent);
+        dispatch(onUpdateEvent({ ...calendarEvent }));
+        return;
+      }
+
+      //Creating
+      const { data } = await calendarAPI.post("/events", calendarEvent);
+      dispatch(onAddNewEvent({ ...calendarEvent, id: data.event.id, user }));
+    } catch (error) {
+      console.log(error);
+      Swal.fire("Error while saving", error.response.data.msg, "error");
     }
+  };
 
-    const startSavingEvent = async ( calendarEvent ) => {
-        // TODO: Arrive to the back end
-
-        //Everything ok
-        if( calendarEvent._id) {
-            // Updating
-            dispatch( onUpdateEvent({...calendarEvent}));
-        }else {
-            //Creating
-            const { data } = await calendarAPI.post('/events', calendarEvent);
-            console.log(data)
-            dispatch( onAddNewEvent({ ...calendarEvent, id: data.event.id, user }));
-        }
+  const startDeletingEvent = async () => {
+    //TODO: Arrive to the back end
+    try {
+      await calendarAPI.delete(`/events/${activeEvent.id}`);
+      dispatch(onDeleteEvent());
+    } catch (error) {
+      console.log(error);
+      Swal.fire("Error while deleting", error.response.data.msg, "error");
     }
+  };
 
-    const startDeletingEvent = async() => {
-        //TODO: Arrive to the back end
-        dispatch( onDeleteEvent() );
+  const startLoadingEvents = async () => {
+    try {
+      const { data } = await calendarAPI.get("/events");
+      const events = convertEventsToDateEvents(data.events);
+      dispatch(onLoadEvents(events));
+    } catch (error) {        
+      Swal.fire("Error while loading events", error.response.data.msg, "error");
+      console.log(error);
     }
-
-    const startLoadingEvents =  async () => {
-        try {
-            const {data} = await calendarAPI.get('/events');
-            const events = convertEventsToDateEvents(data.events);
-            dispatch( onLoadEvents( events ) );
-        } catch (error) {
-            console.log('Error while loading events');
-            console.log(error);
-        }
-    }
- return {
+  };
+  return {
     //Properties
     events,
-    activeEvents,
-    hasEventSelected: !!activeEvents,
+    activeEvent,
+    hasEventSelected: !!activeEvent,
 
     //Methods
     setActiveEvent,
     startDeletingEvent,
     startLoadingEvents,
     startSavingEvent,
- };
+  };
 };
