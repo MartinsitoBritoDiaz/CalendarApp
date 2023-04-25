@@ -42,15 +42,13 @@ export const useAuthStore = () => {
     if(!token) return dispatch(onLogout());
     try {
         const {data} = await calendarAPI.get('/auth/renew');   
+        console.log(data)
         localStorage.setItem('token', data.token );
         localStorage.setItem('token-init-date', new Date().getTime() );
         dispatch( onLogin({name: data.name, uid: data.uid }) );
     } catch (error) {
         localStorage.clear();
         dispatch( onLogout(error.response.data?.msg || '---') );
-        setTimeout(() => {
-            dispatch( clearErrorMessage() );
-        }, 10);
     }
   }
 

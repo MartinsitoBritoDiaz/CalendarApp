@@ -1,7 +1,7 @@
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { Calendar } from 'react-big-calendar';
 import { addHours } from 'date-fns';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Navbar, CalendarEvent, CalendarModal, FabAddNew } from '../';
 import { localizer, getMessages } from '../../helpers';
@@ -10,7 +10,7 @@ import { FabDelete } from '../components/FabDelete';
 
 export function CalendarPage () {
   const { openDateModal } = useUIStore();
-  const { events, setActiveEvent } = useCalendarStore();
+  const { events, setActiveEvent, startLoadingEvents } = useCalendarStore();
   const [lastView, setLastView] = useState( localStorage.getItem('lastView') || 'week');
   
   const eventStyleGetter = (event, start, end, isSelected) => {
@@ -39,6 +39,10 @@ export function CalendarPage () {
     localStorage.setItem('lastView', event);
     setLastView( event );
   }
+
+  useEffect(() => {
+    startLoadingEvents();
+  }, []);
 
   return (
     <div className='bg-white'>
