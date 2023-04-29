@@ -8,10 +8,11 @@ export function FabDelete() {
   };
   return (
     <button
+      aria-label="btn-delete"
       className="btn btn-danger fab-delete btn--custom__red"
       onClick={handleDelete}
       style={{
-        display: hasEventSelected  ? "" : "none",
+        display: hasEventSelected ? "" : "none",
       }}
     >
       <i className=" fas fa-trash-can"></i>

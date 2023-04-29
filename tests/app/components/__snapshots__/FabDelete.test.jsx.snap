@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing inside <FabDelete /> should render the button 1`] = `
+<div>
+  <button
+    aria-label="btn-delete"
+    class="btn btn-danger fab-delete btn--custom__red"
+    style="display: none;"
+  >
+    <i
+      class=" fas fa-trash-can"
+    />
+  </button>
+</div>
+`;

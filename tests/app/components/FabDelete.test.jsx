@@ -1,19 +1,28 @@
 /**
  * @jest-environment jsdom
  */
-import { render, screen } from "@testing-library/react";
-import { Provider } from "react-redux";
-import { FabDelete } from "../../../src/app/components/FabDelete";
-import { store } from "../../../src/store";
+import { render, screen } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import { FabDelete } from '../../../src/app/components/FabDelete';
+import { store } from '../../../src/store';
+import { useCalendarStore } from '../../../src/hooks';
 
-describe("Testing inside <FabDelete />", () => {
-  test("should render the button", () => {
+jest.mock('../../../src/hooks/useCalendarStore');
+
+describe('Testing inside <FabDelete />', () => {
+  test('should render the button', () => {
+    useCalendarStore.mockReturnValue({
+      hasEventSelected: false
+    })
+
     render(
-      <Provider store={store}>
         <FabDelete />
-      </Provider>
     );
 
-    // screen.debug();
+    const btn = screen.getByLabelText('btn-delete');
+
+    expect( btn.style.display ).toBe('none');
+
+    screen.debug();
   });
 });

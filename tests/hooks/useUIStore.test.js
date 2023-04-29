@@ -21,7 +21,7 @@ const getMockStore = (initialState) => {
 describe('Testing inside useUIStore', () => { 
     test('should load the default values', () => { 
         const mockStore = getMockStore({ isDateModalOpen: true});
-        const {result} = renderHook( () => useUIStore, {
+        const {result} = renderHook( () => useUIStore(), {
             wrapper: ({ children }) => <Provider store={ mockStore }>{children}</Provider>
         });
 
